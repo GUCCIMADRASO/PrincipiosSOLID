@@ -1,4 +1,6 @@
 Daniel Estiven Garcia
+Juan José Carvajal
+Sebastián Quintero Flórez
 
 Contexto: Un sistema para administrar la información de empleados, departamentos, y proyectos en una empresa.
 
@@ -23,3 +25,9 @@ Contexto: Un sistema para administrar la información de empleados, departamento
 	Polimorfismo:
 
 		Podemos tener una interfaz Contribuyente con un método contribuir(), que tanto Gerente como Técnico implementen de maneras distintas para reflejar su contribución única a los proyectos.
+
+De los principios SOLID usamos:
+S - Single Responsibility 
+L - Liskov Substitution
+I - Interface Segregation
+D - Dependency Inversion

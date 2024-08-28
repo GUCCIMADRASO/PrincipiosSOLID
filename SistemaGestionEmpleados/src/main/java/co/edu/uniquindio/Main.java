@@ -38,16 +38,13 @@ public class Main {
                         gestionarEquipo(listGerente,listProyecto);
                         break;
                     case 6:
-
+                        gestionarContribucion(listGerente,listTecnico);
                         break;
                     case 7:
-
-                        break;
-                    case 8:
                         salir = true;
                         break;
                     default:
-                        System.out.println("Solo números entre 1 y 8");
+                        System.out.println("Solo números entre 1 y 7");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Debes insertar un número");
@@ -64,9 +61,8 @@ public class Main {
         System.out.println("3. Mostrar proyectos");
         System.out.println("4. Gestionar proyecto (Gerente)");
         System.out.println("5. Gestionar equipos (Gerente)");
-        System.out.println("6. ");
-        System.out.println("7. ");
-        System.out.println("8. Salir");
+        System.out.println("6. Hacer una contribucion");
+        System.out.println("7. Salir");
         System.out.println("Escribe una de las opciones: ");
     }
 
@@ -135,7 +131,7 @@ public class Main {
     // metodo para asignar tecnicos
 
     public static void asignarTecnico(LinkedList<Tecnico> listTecnico,
-                                    LinkedList<Proyecto> listProyecto) {
+                                      LinkedList<Proyecto> listProyecto) {
         // Recorre la lista de técnicos
         for (Tecnico tecnico : listTecnico) {
             // Busca el proyecto correspondiente al código del proyecto del técnico
@@ -194,4 +190,46 @@ public class Main {
             }
         }
     }
+
+    //Metodo para hacer contribucion
+
+    public static void gestionarContribucion(LinkedList<Gerente> listGerente, LinkedList<Tecnico> listTecnico) {
+        Scanner sn = new Scanner(System.in);
+        String id = obtenerDato(sn, "Ingrese su id: ");
+
+        Gerente gerenteEncontrado = null;
+        Tecnico tecnicoEncontrado = null;
+
+        // Buscar en la lista de gerentes
+        for (Gerente gerente : listGerente) {
+            if (gerente.getId().equals(id)) {
+                gerenteEncontrado = gerente;
+                System.out.println("Bienvenido Gerente " + gerente.getNombre());
+                break;
+            }
+        }
+
+        // Si no se encontró el gerente, buscar en la lista de técnicos
+        if (gerenteEncontrado == null) {
+            for (Tecnico tecnico : listTecnico) {
+                if (tecnico.getId().equals(id)) {
+                    tecnicoEncontrado = tecnico;
+                    System.out.println("Bienvenido Técnico " + tecnico.getNombre());
+                    break;
+                }
+            }
+        }
+
+        // Realizar contribución si se encuentra un gerente o un técnico
+        if (gerenteEncontrado != null) {
+            System.out.println(gerenteEncontrado.contribuir());
+        } else if (tecnicoEncontrado != null) {
+            System.out.println(tecnicoEncontrado.contribuir());
+        } else {
+            System.out.println("No se encontró ningún gerente o técnico con el ID proporcionado.");
+        }
+    }
+
+
+
 }
