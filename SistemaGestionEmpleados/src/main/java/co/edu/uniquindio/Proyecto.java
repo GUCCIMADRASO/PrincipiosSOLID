@@ -15,6 +15,34 @@ public class Proyecto {
         this.listEmpleadosAsociados = new LinkedList<>();
     }
 
+    //Metodo para agregar tecnicos a la lista de empleados asociados
+
+    public void agregarTecnico(Tecnico tecnico) {
+        listEmpleadosAsociados.add(tecnico);
+    }
+
+    //Mettodo toString
+
+    @Override
+    public String toString() {
+        return "[" +
+                "nombre='" + nombre + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", Empleados Asociados=" + datosTecnico() +
+                ']';
+    }
+
+
+    //Metodo para mostrar los datos del tecnico asociado
+
+    public String datosTecnico() {
+        String mensaje = "";
+        for (Empleado empleado: listEmpleadosAsociados){
+            mensaje += " nombre = " + empleado.getNombre() + " id = " + empleado.getId() + " rol = " + empleado.getRol() + " ";
+        }
+        return mensaje;
+    }
+
     //Getters y Setters
 
     public String getNombre() {
