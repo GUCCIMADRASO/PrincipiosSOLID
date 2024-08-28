@@ -4,8 +4,6 @@ import java.util.LinkedList;
 
 public class Gerente extends Empleado implements Contribuyente {
 
-    private String rol;
-
     public LinkedList<Tecnico> equipos;
     //Constructor de Gerente que usa los atributos de Empleado
 
@@ -43,16 +41,5 @@ public class Gerente extends Empleado implements Contribuyente {
         }
         System.out.println("El equipo con el codigo: " + codigoProyecto + " no ha sido encontrado.");
         return null; // Retorna null si no se encuentra ningún equipo
-    }
-
-    //Getters y Setters
-
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
     }
 }
