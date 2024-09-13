@@ -1,27 +1,33 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.model;
+
+import co.edu.uniquindio.model.builder.ProyectoBuilder;
 
 import java.util.LinkedList;
 
 public class Proyecto {
     private String nombre;
     private String codigo;
-    private LinkedList<Empleado> listEmpleadosAsociados;
+    private LinkedList<Empleado> listEmpleado;
 
     //Construcor de Proyecto
 
     public Proyecto(String nombre, String codigo) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.listEmpleadosAsociados = new LinkedList<>();
+        listEmpleado = new LinkedList<>();
     }
+
+    //Metodo para crear un proyecto con el builder
+
+    public static ProyectoBuilder builder(){return new ProyectoBuilder();}
 
     //Metodo para agregar tecnicos a la lista de empleados asociados
 
     public void agregarTecnico(Tecnico tecnico) {
-        listEmpleadosAsociados.add(tecnico);
+        listEmpleado.add(tecnico);
     }
 
-    //Mettodo toString
+    //Metodo toString
 
     @Override
     public String toString() {
@@ -37,8 +43,8 @@ public class Proyecto {
 
     public String datosTecnico() {
         String mensaje = "";
-        for (Empleado empleado: listEmpleadosAsociados){
-            mensaje += " nombre = " + empleado.getNombre() + " id = " + empleado.getId() + " rol = " + empleado.getRol() + " ";
+        for (Empleado empleado: listEmpleado){
+            mensaje += " nombre = " + empleado.getNombre() + " id = " + empleado.getId() + " ";
         }
         return mensaje;
     }
@@ -62,10 +68,10 @@ public class Proyecto {
     }
 
     public LinkedList<Empleado> getListEmpleadosAsociados() {
-        return listEmpleadosAsociados;
+        return listEmpleado;
     }
 
     public void setListEmpleadosAsociados(LinkedList<Empleado> listEmpleadosAsociados) {
-        this.listEmpleadosAsociados = listEmpleadosAsociados;
+        this.listEmpleado = listEmpleadosAsociados;
     }
 }

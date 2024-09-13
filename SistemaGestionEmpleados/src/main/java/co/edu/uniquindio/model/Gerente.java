@@ -1,16 +1,22 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.model;
+
+import co.edu.uniquindio.model.builder.GerenteBuilder;
 
 import java.util.LinkedList;
 
-public class Gerente extends Empleado implements Contribuyente {
+public class Gerente extends Empleado {
 
     public LinkedList<Tecnico> equipos;
+
     //Constructor de Gerente que usa los atributos de Empleado
 
-    public Gerente(String nombre, String id,String rol, Departamento departamento, Proyecto proyecto) {
-        super(nombre, id, rol, departamento, proyecto);
+    public Gerente(String nombre, String id, Departamento departamento, Proyecto proyecto) {
+        super(nombre, id, departamento, proyecto);
         equipos = new LinkedList<>();
     }
+
+    //Metodo para crear un Gerente con el builder
+    public static GerenteBuilder builder() {return new GerenteBuilder();}
 
     //Implementacion del metodo contribuir
 

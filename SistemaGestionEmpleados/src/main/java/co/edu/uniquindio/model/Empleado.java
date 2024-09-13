@@ -1,18 +1,18 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.model;
 
-public abstract class Empleado {
+import co.edu.uniquindio.service.IContribuyente;
+
+public abstract class Empleado implements IContribuyente {
     private String nombre;
     private String id;
-    private String rol;
     private Departamento departamento;
     private Proyecto proyecto;
 
     //Construcor de Empleado
 
-    public Empleado(String nombre, String id,String rol, Departamento departamento, Proyecto proyecto) {
+    public Empleado(String nombre, String id, Departamento departamento, Proyecto proyecto) {
         this.nombre = nombre;
         this.id = id;
-        this.rol = rol;
         this.departamento = departamento;
         this.proyecto = proyecto;
     }
@@ -46,8 +46,4 @@ public abstract class Empleado {
     public Proyecto getProyecto() {return proyecto;}
 
     public void setProyecto(Proyecto proyecto) {this.proyecto = proyecto;}
-
-    public String getRol() {return rol;}
-
-    public void setRol(String rol) {this.rol = rol;}
 }
